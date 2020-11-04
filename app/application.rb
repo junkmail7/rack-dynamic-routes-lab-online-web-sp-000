@@ -9,8 +9,8 @@ class Application
         i.name == item_name
       end
       if item == nil
-        resp.status = 404
-        resp.write "Route not found"
+        resp.status = 400
+        resp.write "Item not found"
       else
         resp.write item.price
       end
