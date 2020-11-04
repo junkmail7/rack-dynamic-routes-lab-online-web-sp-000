@@ -8,9 +8,13 @@ class Application
       item = @@items.find do |i|
         i.name == item_name
       end
-      resp.write item.price
+      if item == nil
+        resp.status = 400
+      else
+        resp.write item.price
+      end
     else
-      resp.write "404"
+      resp.status = 400
     end
     resp.finish
   end
