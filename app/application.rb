@@ -10,11 +10,13 @@ class Application
       end
       if item == nil
         resp.status = 400
+        resp.write "Route not found"
       else
         resp.write item.price
       end
     else
       resp.status = 400
+      resp.write "Route not found"
     end
     resp.finish
   end
